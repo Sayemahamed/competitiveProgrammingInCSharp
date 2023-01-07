@@ -31,15 +31,21 @@ class codeforces
     //Start of Solve Function
     static void solve()
     {
-        getInt();
-        long[] arr = getLongArr();
-        for (int i = 0; i < arr.Length; i++)
+        int[]arr=getIntArr();
+        string s=Console.ReadLine();
+        if (arr[0] == 1 && arr[1]>0) { Console.WriteLine(0);return; }
+        char[] sArr=s.ToCharArray();
+        if (sArr[0] != '1' && arr[1]>0) { sArr[0] = '1'; arr[1]--; }
+        for(int i = 1; i < sArr.Length; i++) 
         {
-            if (arr[i]%14<7)
-                Console.WriteLine("YES");
-            else
-                Console.WriteLine("NO");
+            if (arr[1] <= 0) break;
+            if (sArr[i] != '0')
+            {
+                sArr[i] = '0';
+                arr[1]--;
+            }
         }
+        printArr(sArr);
     }
     //End of Solve Function
 

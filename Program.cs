@@ -9,16 +9,13 @@ class codeforces
     static double[] getDoubleArr() => Console.ReadLine().Split(' ').Select(x => Convert.ToDouble(x)).ToArray();
     static string[] getWords() => Console.ReadLine().Split(' ');
     static int getInt() => Convert.ToInt32(Console.ReadLine().Trim());
-    static void printArr<T>(T[] x)
-    {
-        for (var i = 0; i < x.Length; i++) Console.Write($"{x[i]} "); Console.WriteLine();
-    }
+    static void printArr<T>(T[] x){for (var i = 0; i < x.Length; i++) Console.Write($"{x[i]} "); Console.WriteLine();}
     //End of Input/Output Methods
 
 
     //Start of Helper functions
-    static int gcd(int a,int b){if (b == 0) return a;return gcd(b, (a % b));}
-    static int lcm(int a, int b) => a * b / gcd(a, b);
+    static int gcd(int a,int b){if (b == 0 || a==b) return a;return gcd(b, (a % b));}
+    static int lcm(int a, int b) => a * (b / gcd(a, b));
     static int bitCount(int num){int count = 0;while (num != 0){num &= num - 1;count++;}return count;}
     //End of Helper functions
 
